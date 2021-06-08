@@ -14,7 +14,7 @@ namespace CrmUi
         }
         public SellerForm(Seller seller) : this()
         {
-            Sellers = seller;
+            Sellers = seller ?? new Seller();
             textBox1.Text = seller.Name;
         }
         private void CustomerForm_Load(object sender, EventArgs e)
@@ -23,9 +23,9 @@ namespace CrmUi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var s = Sellers ?? new Seller();
+            Sellers = Sellers ?? new Seller();
 
-            s.Name = textBox1.Text;
+            Sellers.Name = textBox1.Text;
             
             Close();
         }
