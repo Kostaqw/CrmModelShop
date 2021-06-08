@@ -15,7 +15,7 @@ namespace CrmUi
 
         public ProductForm(Product product) :this()
         {
-            Products = product;
+            Products = product ?? new Product();
             textBox1.Text = product.Name;
             numericUpDown1.Value = product.Price;
             numericUpDown2.Value = product.Count;

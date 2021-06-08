@@ -13,6 +13,8 @@ namespace CrmBL.Model
 
         public int SellerId { get; set; }
 
+        public decimal Price { get; set; }
+
         public virtual Seller Seller { get; set; }
 
         public DateTime Created { get; set; }
