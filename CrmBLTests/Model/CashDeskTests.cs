@@ -49,7 +49,7 @@ namespace CrmBL.Model.Tests
                 Count = 20
             };                
 
-            var cashDesk = new CashDesk(1, seller);
+            var cashDesk = new CashDesk(1, seller, null);
             cashDesk.MaxQueueLength = 10;
             //action
             var cart1 = new Cart(customer1);

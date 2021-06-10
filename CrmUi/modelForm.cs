@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,8 +30,8 @@ namespace CrmUi
                 cashBoxes.Add(box);
                 Controls.Add(box.CashDeskName);
                 Controls.Add(box.Price);
-                Controls.Add(box.QueuLength);
-                Controls.Add(box.LeaveCustomer);
+                Controls.Add(box.QueueLenght);
+                Controls.Add(box.LeaveCustomersCount);
             }
 
             model.Start();
@@ -40,7 +41,7 @@ namespace CrmUi
 
         private void modelForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            model.Stop();
+        
         }
 
         private void modelForm_Load(object sender, EventArgs e)
@@ -57,6 +58,11 @@ namespace CrmUi
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             model.CashDeskSpeed = (int)numericUpDown2.Value;
+        }
+
+        private void modelForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            model.Stop();
         }
     }
 
